@@ -1,0 +1,17 @@
+.hamburger {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: $nav-height;
+    height: $nav-height;
+    &-item {
+      flex-basis: 3px;
+      background-color: $color-hamburger;
+    }
+  }
+}

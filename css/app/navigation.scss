@@ -1,0 +1,30 @@
+nav {
+  width: 100%;
+  height: $nav-height;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  margin-left: 30px;
+}
+
+.navigation {
+  margin: 0px;
+  display: flex;
+  list-style-type: none;
+  &-item {
+    margin-right: 30px;
+  }
+
+  .second-nav {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navigation {
+    display: none;
+  }
+}
