@@ -1,0 +1,59 @@
+article {
+  h1 {
+    text-align: center;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    height: 550px;
+  }
+
+  .card {
+    transition: 1s;
+    border: 1px solid $text-color;
+    margin: 5px;
+    width: 300px;
+    height: 400px;
+    padding: 10px;
+    font-weight: 900;
+    border-radius: 5px;
+    img {
+      width: 100%;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    &:hover {
+      text-transform: capitalize;
+      width: 400px;
+      height: 530px;
+      transform: translateY(-30px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+  }
+}
+
+@media screen and (max-width: 960px) {
+  article {
+    .container {
+      justify-content: center;
+      height: 360px;
+    }
+
+    .card {
+      width: 200px;
+      height: 250px;
+
+      &:hover {
+        width: 250px;
+        height: 330px;
+        transform: translateY(-15px);
+      }
+    }
+  }
+}

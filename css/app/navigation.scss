@@ -1,4 +1,22 @@
+$navigation-font-size: 20px;
+$navigation-background-color: rgba(0, 0, 0, 0.42);
+$second-navigation-background-color: rgba(0, 0, 0, 0.52);
+$second-navigation-background-color-item: rgba(0, 0, 0, 0.62);
+$height-second-nav-item: 30px;
+$sircle-size: 8px;
+
+@mixin triangle {
+  content:"\A";
+  border-style: solid;
+  border-width: 15px 10px 0 10px;
+  border-color: darken($color: $text-color, $amount: 5)  transparent transparent transparent ;
+  position: absolute;
+  left: 60px;
+  top: ($nav-height - 15)/2;
+}
+
 nav {
+  background-color: $navigation-background-color;
   width: 100%;
   height: $nav-height;
   display: flex;
@@ -7,19 +25,87 @@ nav {
 }
 
 .logo {
+  text-shadow: $text-color 1px -1px;
+  font-size: 36px;
+  line-height: 42px;
   margin-left: 30px;
 }
 
 .navigation {
-  margin: 0px;
+  margin: 0px 50px 0px 0px;
+  height: 100%;
   display: flex;
   list-style-type: none;
-  &-item {
-    margin-right: 30px;
-  }
+  color: $text-color;
+  font-size: $navigation-font-size;
 
-  .second-nav {
-    display: none;
+  &-item {
+    position: relative;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    width: 70px;
+    margin-right: 30px;
+    &>a {
+      transition-duration: 500ms;
+      color: $text-color;
+      text-decoration: none;
+    }
+
+    &>a:active {
+      border-bottom: #169DFF solid 3px;
+    }
+
+    .second-nav {
+      margin-top: ($nav-height - $navigation-font-size)/2;
+      background-color: $second-navigation-background-color;
+      position: absolute;
+      transition-duration: 1s;
+      transition-property: opacity;
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    &:hover::before {
+      @include triangle;
+    }
+
+    &:hover .second-nav {
+      list-style-type: none;
+      padding-left: 0px;
+      position: absolute;
+      top: ($nav-height + $navigation-font-size)/2;
+      min-width: 150px;
+      text-align: left;
+      visibility: visible;
+      opacity: 1;
+
+      &-item {
+        position: relative;
+        padding-left: 20px;;
+        border-bottom: #E5E5E5 solid 1px;
+        background-color: $navigation-background-color;
+        height: $height-second-nav-item;
+        transition-duration: 1s;
+        transition-property: background-color;
+        &::before {
+          display: block;
+          content: ' ';
+          position: absolute;
+          top: $height-second-nav-item / 2 - $sircle-size;
+          left: 10px - $sircle-size / 2;
+          width: $sircle-size;
+          height: $sircle-size;
+          border-radius: 50%;
+          background-color: darken($color: $text-color, $amount: 5);
+        }
+
+        &:hover {
+          background-color: $second-navigation-background-color-item;
+        }
+      }
+    }
   }
 }
 

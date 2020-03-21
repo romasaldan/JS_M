@@ -9,8 +9,9 @@
     justify-content: space-evenly;
     width: $nav-height;
     height: $nav-height;
+    padding: 25px;
     &-item {
-      flex-basis: 3px;
+      flex-basis: 5px;
       background-color: $color-hamburger;
     }
   }
