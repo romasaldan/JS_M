@@ -73,3 +73,17 @@ footer {
     }
   }
 }
+
+
+@media screen and (max-width: 1150px) {
+  footer {
+    grid-template-columns: 4fr 3fr;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  footer {
+    display: flex;
+    flex-direction: column;
+  }
+}
