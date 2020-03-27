@@ -8,7 +8,7 @@
   max-width: 350px;
   height: $auth-height;
 
-  &-header {
+  &__header {
     font-size: 24px;
   };
 
@@ -19,7 +19,7 @@
     flex-direction: column;
     justify-content: space-evenly;
 
-    &-item {
+    &__item {
       display: flex;
       justify-content: space-between;
 

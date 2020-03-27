@@ -1,3 +1,5 @@
+$color-hamburger: black;
+
 .hamburger {
   display: none;
 }
@@ -10,7 +12,7 @@
     width: $nav-height;
     height: $nav-height;
     padding: 25px;
-    &-item {
+    &__item {
       flex-basis: 5px;
       background-color: $color-hamburger;
     }

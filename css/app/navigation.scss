@@ -39,7 +39,7 @@ nav {
   color: $text-color;
   font-size: $navigation-font-size;
 
-  &-item {
+  &__item {
     position: relative;
     align-self: stretch;
     display: flex;
@@ -81,7 +81,7 @@ nav {
       visibility: visible;
       opacity: 1;
 
-      &-item {
+      &__item {
         position: relative;
         padding-left: 20px;;
         border-bottom: #E5E5E5 solid 1px;

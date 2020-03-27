@@ -14,16 +14,16 @@ footer {
   display: flex;
   flex-direction: column;
 
-  &-header {
+  &__header {
     margin: 10px;
     color: $footer-headers-text-color;
   }
 
-  &-icons {
+  &__icons {
     padding: 15px;
     display: flex;
     justify-content: center;
-    &-social {
+    &__social {
       margin-left: 10px;
       width: 48px;
       height: 48px;
@@ -34,7 +34,8 @@ footer {
       }
     }
   }
-  &-item {
+  &__item {
+    margin-bottom: 10px;
     padding-left: 20px;
     display: flex;
     min-height: 60px;
@@ -43,13 +44,10 @@ footer {
       display: flex;
       flex-direction: column;
       justify-content: center;
-
-      &-text {
-        margin-left: 10px;
-      }
+      padding-left: 10px;
     }
 
-    &-calendar {
+    &__calendar {
       min-width: 48px;
       height: 48px;
       display: flex;
@@ -60,7 +58,11 @@ footer {
       align-self: center;
     }
 
-    &-logo {
+    &__header {
+      color: $footer-headers-text-color;
+    }
+
+    &__logo {
       align-self: center;
       padding: 5px;
 
@@ -68,10 +70,6 @@ footer {
         width: 24px;
         height: 24px;
       }
-    }
-
-    &-description-header {
-      color: $footer-headers-text-color;
     }
   }
 }
