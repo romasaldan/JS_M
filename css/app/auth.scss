@@ -1,0 +1,56 @@
+.auth {
+  margin-left: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: $auth-margin;
+  min-width: 250px;
+  max-width: 350px;
+  height: $auth-height;
+
+  &__header {
+    font-size: 24px;
+    text-shadow: white 0 0 2px;
+  };
+
+  &-form {
+    font-size: 18px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    &__item {
+      display: flex;
+      justify-content: space-between;
+
+      label {
+        text-shadow: white 0 0 2px;
+        align-self: center;
+      }
+
+      input {
+        height: 40px;
+        padding: 5px;
+        border-color: $text-color;
+        border-radius: 5px;
+      }
+
+      input[type=submit] {
+        width: 120px;
+        transition-duration: 1s;;
+
+        &:hover {
+          background-color: lighten($color:  $text-color, $amount: 10);
+          color: white;
+          border-color: darken($color: $text-color, $amount: 10);
+        }
+      }
+
+      &:last-child {
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+  };
+}

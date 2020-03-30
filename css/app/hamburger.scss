@@ -1,3 +1,5 @@
+$color-hamburger: black;
+
 .hamburger {
   display: none;
 }
@@ -9,8 +11,9 @@
     justify-content: space-evenly;
     width: $nav-height;
     height: $nav-height;
-    &-item {
-      flex-basis: 3px;
+    padding: 25px;
+    &__item {
+      flex-basis: 5px;
       background-color: $color-hamburger;
     }
   }

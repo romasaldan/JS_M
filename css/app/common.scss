@@ -1,3 +1,51 @@
 * {
   box-sizing: border-box;
+  font-family: $text-font;
+}
+
+.background {
+  position: absolute;
+  right: 0;
+  z-index: -1;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-image: url(backgrounds/poland-snowboarding-fun-800x600.png);
+  clip-path: polygon(100% 0, 100% 100%, 45% 100%, 20% 26%, 41% 0);
+  background-clip: border-box;
+  width: 1500px;
+  height: $auth-margin + $auth-height + $nav-height;
+}
+
+
+@media screen and (max-width: 1024px) {
+  .background {
+    width: 1000px;
+    clip-path: polygon(100% 0, 100% 100%, 55% 100%, 20% 26%, 41% 0);
+  }
+}
+
+
+
+.custom-input {
+  position: relative;
+
+  &>input {
+    height: 45px;
+    width: 100%;
+    padding: 5px 45px 5px 5px;
+  }
+
+  &:before {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    right: 0;
+    padding: 15px;
+    background-image: url(backgrounds/check.png);
+    background-size: 100%;
+    background-color: #0083ff;
+    content: ' ';
+    width: 45px;
+    height: 45px;
+  }
 }
