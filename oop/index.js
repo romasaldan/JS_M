@@ -47,26 +47,26 @@
 // Car and Motorcycle have the method 
 
 class Vehicle {
-  #speed = 0;
-  #reachedSpeed = 0;
-  #stopping = false;
-  #moving = false;
-
-  constructor (color, engine, maxSpeed) {
+  constructor (color, engine, maxSpeed) {  
     this.color = color;
     this.engine = engine;
     this.maxSpeed = maxSpeed;
+
+    this._speed = 0;
+    this._reachedSpeed = 0;
+    this._stopping = false;
+    this._moving = false;
   }
 
   upgradeEngine(engine, maxSpeed) {
-    if (!this.#speed) {
+    if (!this._speed) {
       this.engine = engine;
       this.maxSpeed = maxSpeed;
     }
   }
 
   drive() {
-    if (this.#speed) {
+    if (this._speed) {
       console.log('You can not start driving. You are running now already!');
 
       return;
@@ -74,15 +74,15 @@ class Vehicle {
       console.warn('Please fasten your belts!');
     }
 
-    if (this.#stopping) {
-      clearInterval(this.#stopping);
+    if (this._stopping) {
+      clearInterval(this._stopping);
     }
 
-    this.#moving = setInterval(() => {
-      this.#speed += 20;
-      this.#reachedSpeed = Math.max(this.#reachedSpeed, this.#speed);
+    this._moving = setInterval(() => {
+      this._speed += 20;
+      this._reachedSpeed = Math.max(this._reachedSpeed, this._speed);
 
-      if (this.#speed > this.maxSpeed) {
+      if (this._speed > this.maxSpeed) {
         console.log('speed is too high, Please STOP!');
       }
 
@@ -90,29 +90,29 @@ class Vehicle {
   }
 
   stop(message = 'Good drive') {
-    if (!this.#speed) {
+    if (!this._speed) {
       console.log('You are not running');
 
       return
     }
 
-    if (this.#stopping) {
+    if (this._stopping) {
       console.log('You are stopping already');
 
       return
     }
 
 
-    this.#stopping = setInterval(() => {
-      clearInterval(this.#moving);
+    this._stopping = setInterval(() => {
+      clearInterval(this._moving);
 
-      this.#speed = this.#speed < 20 ? 0 : this.#speed - 20;
+      this._speed = this._speed < 20 ? 0 : this._speed - 20;
 
-      if (this.#speed === 0) {
-        console.log(`${message}, Max speed during the drive was ${this.#reachedSpeed}`);
-        clearInterval(this.#stopping)
-        this.#stopping = false;
-        this.#reachedSpeed = 0;
+      if (this._speed === 0) {
+        console.log(`${message}, Max speed during the drive was ${this._reachedSpeed}`);
+        clearInterval(this._stopping)
+        this._stopping = false;
+        this._reachedSpeed = 0;
       }
 
     }, 3000);
@@ -137,8 +137,36 @@ class Motorcycle extends Vehicle {
     this.model = model;
   }
 
+  drive() {
+    if (this._speed) {
+      console.log('You can not start driving. You are running now already!');
+
+      return;
+    } else {
+      console.warn('Please fasten your belts!');
+    }
+
+    if (this._stopping) {
+      clearInterval(this._stopping);
+    }
+
+    this._moving = setInterval(() => {
+      if (this._speed > this.maxSpeed) {
+        console.log('Something went wrong and motorcycle begin braking.');
+        this.stop();
+        clearInterval(this._moving)
+  
+        return;
+      }  
+
+      this._speed += 20;
+      this._reachedSpeed = Math.max(this._reachedSpeed, this._speed);
+
+    }, 3000);
+  }
+
   stop() {
-    super.stop(`Car ${this.model} is stoped.`)
+    super.stop('Incredible drive')
   }
 
 }
