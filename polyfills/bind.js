@@ -1,17 +1,14 @@
-const { isFunction, isObject } = require('./additionalFunctions');
-
-var bindValidation = function (func, obj) {
-  if(!isFunction(func)) throw Error('first parameter must be function');
+var bindValidation = function (obj) {
   if (typeof obj !== 'object') throw Error('context must be an object or null');
 }
 
 const bindES6 = (func, context, ...rest) => {
-  bindValidation(func, context);
+  bindValidation(context);
   return (...args) => func.apply(context, [...rest, ...args]);
 }
 
 var bind = function (func, context) {
-  bindValidation(func, context);
+  bindValidation(context);
 
   var bindedArguments = [].slice.call(arguments, 2);
 
