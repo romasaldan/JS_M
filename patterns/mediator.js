@@ -27,7 +27,7 @@ class Arena {
   }
 
   unRegisterRacer(racer) {
-    this.racers = this.racers.filter(el => el === racer);
+    this.racers = this.racers.filter(el => el !== racer);
     return this;
   }
 
@@ -97,4 +97,8 @@ arena
   .startRacing('Tournament of three requests 2020')
   .registerRacer(githubRepos)
 
-setTimeout(() => arena.startRacing('Tournament of four requests 2020'), 4000);
+setTimeout(() => {
+  arena
+    .unRegisterRacer(github)
+    .startRacing('Tournament of four requests 2020');
+}, 4000);
