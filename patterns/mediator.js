@@ -84,7 +84,7 @@ class Arena {
 }
 
 const todos = new UrlRacer('https://jsonplaceholder.typicode.com/todos');
-const users = new UrlRacer('https://jsonplaceholde.typicode.com/users');
+const users = new UrlRacer('https://jsonplaceholder.typicode.com/users');
 const github = new UrlRacer('https://api.github.com/users/romasaldan');
 const githubRepos = new UrlRacer('https://api.github.com/users/romasaldan/repos');
 
